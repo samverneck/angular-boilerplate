@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="guiacc">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Guiacc.com.br">
+    <meta name="author" content="GuiaCC">
+    <link rel="stylesheet" href="app/assets/css/style.css">    
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app/bower_components/Ionicons/css/ionicons.css">
+	<title>GuiaCC</title>
+</head>
+<body ng-controller="homeCtrl">
+	<input type="text" ng-model="nome">
+	<div class="jumbotron"></div>
+	<div class="panel">
+		<input type="text" class="form-control">
+	</div>
+	<button class="form-control" ng-click="teste()">{{ nome | uppercase }}</button>
+	<ul>
+		<li ng-repeat="contato in data.contatos">{{ contato.nome }}</li>
+	</ul>
+	<select  >
+		<option ng-repeat="contato in data.contatos" >{{ data.contato.nome }}</option>
+	</select>
+	
+	
+	<!-- Main imports-->
+
+	<script src="app/bower_components/angular/angular.js"></script>
+	<script src="app/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+	<script src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+
+    <!-- Controllers -->
+
+	<script src="www/controllers/home/homeCtrl.js"></script>
+	
+	<!-- Module main-->
+	<script src="www/app.js"></script>
+    
+
+</body>
+</html>

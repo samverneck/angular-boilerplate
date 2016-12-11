@@ -1,0 +1,17 @@
+{
+  "name": "guiacc_web",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Mikael Hadler"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mikaelhadler/angular-boilerplate",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.6.0",
+    "Ionicons": "ionicons#^2.0.1",
+    "angular-bootstrap": "^2.3.1",
+    "bootstrap": "^3.3.7"
+  }
+}
