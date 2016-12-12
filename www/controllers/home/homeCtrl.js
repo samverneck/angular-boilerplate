@@ -5,21 +5,49 @@
 		.module("gc.controllers")
 		.controller("homeCtrl", homeCtrl)
 
-	function homeCtrl ($scope) {
+		homeCtrl.$inject = ['$scope', '$http', '$auth'];
+
+	function homeCtrl ($scope, $http, $auth) {
 		
 		$scope.data = {};
+		$scope.data.cadastro = {};
 
-		$scope.teste = function () {
-			$scope.data.contatos = [{
-				nome : 'mikael',
-				idade : 22
-			},
-			{
-				nome : 'Gustavo',
-				idade : 25
-			}]
-			$scope.data.mikael = 'mikael';
-				console.log($scope.data.mikael);
+		$scope.loginFacebook = function (usuario) {
+			$scope.authenticate = function(usuario) {
+			    $auth.authenticate(usuario);
+    		};
 		}
+
+		$scope.teste = function (usuario) {
+			console.log(usuario);
+		}  
+
+		$scope.authenticate = function(provider) {
+
+			$authProvider.facebook({
+			    clientId: '1814221662151616'
+			});		
+	       console.log(provider);
+	       $auth.authenticate(provider)
+	       .then(function (response) {
+	         console.log(response.access_token);
+	        //  var fields = ['id', 'email', 'password'];
+	        //  var graphApiUrl = 'https://graph.facebook.com/v2.5/me?fields=' + fields.join(',');
+	           //   $http({
+	           //     method:'GET',
+	           //     url: graphApiUrl,
+	           //     headers: {
+	           //       'Content-Type':'application/json'
+	           //     }
+	           //   }).then(function successCallback(response) {
+	           //     console.log(response);
+	           //     var userData = response.data;
+	           //     console.log(userData);      
+	           // });
+	       });
+
+	        authenticate('facebook');
+	      }                    
+
 	}
 })();
